@@ -3,6 +3,7 @@ const express = require('express');
 const { portfolio, executeTradingStrategy, getPortfolioValue, logs } = require('./Trading.js'); // Require the trading.js file
 const cors = require('cors');
 const app = express();
+const { getStockPrices } = require('./MockApi');
 const PORT = 3000;
 app.use(cors());
 
@@ -29,20 +30,25 @@ app.get('/portfolio', (req, res) => {
         }
 
         totalInvestments[symbol] = totalInvestment; // Store total investment in new object
-        console.log(`${symbol}  -  ${totalInvestment}`);
+        console.log(${symbol}  -  ${totalInvestment});
     }
 
     // Send total investments as a JSON response
     res.json(totalInvestments);
 });
 
+// Route to fetch logs
 app.get('/logs', (req, res) => {
     res.json(logs);
 });
 
-
+// Corrected route to fetch stock prices
+app.get('/prices', (req, res) => {
+    const prices = getStockPrices();
+    res.json(prices);  // Corrected json method
+});
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(Server is running on http://localhost:${PORT});
 });
