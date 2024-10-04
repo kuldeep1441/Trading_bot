@@ -1,3 +1,17 @@
+
+## Installation and Setup Instructions
+
+1. *Install Dependencies*:
+   - Navigate to both the backend and frontend folders, and run npm install to install necessary packages.
+
+2. *Run the Backend*:
+   - Start the backend server first using nodemon index.js. This will initialize the API and begin generating stock data.
+
+3. *Run the Frontend*:
+   - After letting the backend run for 5 minutes to generate data, start the frontend by running npm start.
+
+Once set up, you can view the app in your browser at http://localhost:3000, where you'll see portfolio data and transaction logs.
+
 ### Stock Price Generation Mechanism
 
 1. *Fluctuation Based on Stock Type*:
@@ -30,6 +44,9 @@ Momentum trading involves tracking the last 10 price changes of a stock:
 - If there are *8 or more positive changes*, the stock is in a positive trend, and we buy more of it.
 
 This algorithm identifies strong price movements and acts accordingly.
+
+<img width="467" alt="image" src="https://github.com/user-attachments/assets/2f304c19-07cb-4a68-ac9f-e9d95a3e9c97">
+
 
 #### 3. *Algo 2: Moving Average Trading*
 This algorithm compares the stock’s current price with its moving average for the last hour:
