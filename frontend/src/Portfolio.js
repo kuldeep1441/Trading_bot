@@ -4,6 +4,7 @@ import './Portfolio.css'; // Import the CSS module
 const Portfolio = () => {
     const [portfolioData, setPortfolioData] = useState({});
     const [logs, setLogs] = useState([]);
+    const [prices, setPrices] = useState({}); // State to store stock prices
     
     // Function to fetch portfolio data
     const fetchPortfolioData = async () => {
@@ -19,13 +20,22 @@ const Portfolio = () => {
         setLogs(data);
     };
 
+    // Function to fetch stock prices
+    const fetchPrices = async () => {
+        const response = await fetch('http://localhost:3000/prices');
+        const data = await response.json();
+        setPrices(data); // Set prices from API response
+    };
+
     // Fetch data every 5 seconds
     useEffect(() => {
         fetchPortfolioData();
         fetchLogs();
+        fetchPrices();
         const interval = setInterval(() => {
             fetchPortfolioData();
             fetchLogs();
+            fetchPrices();
         }, 5000);
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
@@ -61,6 +71,26 @@ const Portfolio = () => {
                             </tr>
                         )
                     )}
+                </tbody>
+            </table>
+
+            <h2>Stock Prices</h2>
+            <table className="prices-table">
+                <thead>
+                    <tr>
+                        <th>Stock Symbol</th>
+                        <th>Company Name</th>
+                        <th>Current Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.entries(prices).map(([symbol, { name, price }]) => (
+                        <tr key={symbol}>
+                            <td>{symbol}</td>
+                            <td>{name}</td>
+                            <td>${price}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 
