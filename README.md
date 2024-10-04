@@ -91,6 +91,11 @@ The index.js file in the backend folder contains two important API endpoints, pr
 
 - *Use Case*: Helps in reviewing the trade history, understanding patterns, and tracking each decision the bot has made with timestamps.
 
+*3. /prices Endpoint:*
+
+- *Purpose*: This endpoint provides a record of all prices of each stock in real time.
+  
+
 Frontend: Portfolio and Logs Display
 
 This React component dynamically fetches and displays real-time portfolio data and transaction logs from the backend. It communicates with two API endpoints: /portfolio and /logs, updating the display every 5 seconds to keep the information current.
