@@ -11,27 +11,27 @@
     margin-bottom: 20px;
 }
 
-.investment-table, .logs-table {
+.investment-table, .logs-table, .prices-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-.investment-table th, .logs-table th {
+.investment-table th, .logs-table th, .prices-table th {
     background-color: #007bff;
     color: white;
     padding: 10px;
 }
 
-.investment-table td, .logs-table td {
+.investment-table td, .logs-table td, .prices-table td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.investment-table tr:nth-child(even), .logs-table tr:nth-child(even) {
+.investment-table tr:nth-child(even), .logs-table tr:nth-child(even), .prices-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.investment-table tr:hover, .logs-table tr:hover {
+.investment-table tr:hover, .logs-table tr:hover, .prices-table tr:hover {
     background-color: #ddd;
 }
