@@ -30,7 +30,7 @@ app.get('/portfolio', (req, res) => {
         }
 
         totalInvestments[symbol] = totalInvestment; // Store total investment in new object
-        console.log(${symbol}  -  ${totalInvestment});
+        console.log(`${symbol}  -  ${totalInvestment}`);
     }
 
     // Send total investments as a JSON response
@@ -50,5 +50,5 @@ app.get('/prices', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(Server is running on http://localhost:${PORT});
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
